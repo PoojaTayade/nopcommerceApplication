@@ -1,3 +1,5 @@
+#git@github.com:PoojaTayade/nopcommerceApplication.git -->My Remote Repository
+
 import pytest
 from selenium import webdriver
 from PageObjectModel.LoginPage import Loginpage
@@ -11,6 +13,7 @@ class Test_001_Login:
 
     logger = LogGen.loggen()
 
+    @pytest.mark.regression
     def test_homePageTitle(self,setup): #driver=setup
         self.logger.info("####Test_001_Login#####")
         self.logger.info("####Test Case Started####")
@@ -27,6 +30,8 @@ class Test_001_Login:
            self.logger.error("####Test Case is Failed####")
            assert False
 
+    @pytest.mark.sanity
+    @pytest.mark.regression
     def test_login(self,setup): #driver=setup
         self.logger.info("####Verifying Test Case####")
         self.driver = setup #we have to again launch browser here--> so we have to use fixture for that -->we write common data into a fixture-->conftest file we make in tset cases folder
